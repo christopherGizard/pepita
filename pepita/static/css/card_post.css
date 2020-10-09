@@ -1,0 +1,36 @@
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.leftcolumn {
+  float: left;
+  width: 63%;
+  margin: 0 6% 2% 6%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 20%;
+  margin-right: 5%;
+}
+
+/* Fake image */
+.img-card {
+ width: 526px;
+ height: 526px;
+ vertical-align: middle;
+}
+
+/* Add a card effect for articles */
+.card {
+  width:90%;
+  background-color: white;
+  margin-top: 20px;
+  text-align: center;
+  display: table;
+}
+

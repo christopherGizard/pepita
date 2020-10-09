@@ -1,0 +1,93 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: static;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: auto;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 10em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    line-height: 2em;
+}
+
+.btn-fb {
+    color: #fff;
+    background-color: #3b5998;
+}
+.btn-insta {
+	color: #fff;
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+.btn-floating {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0;
+    margin: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    width: 47px;
+    height: 47px;
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 47px;
+}
+
+.foot-section {
+	width: 33%;
+	float: left;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 2em;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+

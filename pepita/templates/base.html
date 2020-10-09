@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome/css/all.css' %}">
+		{% block css %}
+		{% endblock %}
+		<meta charset="utf-8">
+		<title>{% block title %}Pepita{% endblock %}</title>
+		
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+			</div>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="{% url 'accueil' %}">
+					<img src="{% static 'img/macaron.jpg' %}" width="50" height="30" class="d-inline-block align-top" alt="">
+					Pepita
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li id="accueil" class="nav-item">
+							<a class="nav-link" href="{% url 'liste_post' %}">Accueil</a>
+						</li>
+						<li id="carte" class="nav-item">
+							<a class="nav-link" href="#">Carte</a>
+						</li>
+						<li id="photo" class="nav-item">
+							<a class="nav-link" href="#">Galleries</a>
+						</li>
+						<li id="contact" class="nav-item">
+							<a class="nav-link" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<span class='navbar-text'>
+					{% if user.is_authenticated %}
+						{{ user.username }} connecté !
+						<a class="btn" href="{% url 'deconnexion' %}">Deconnexion</a>
+					{% else %}
+						<a class="btn" href="{% url 'connexion' %}">Connexion</a>
+						<a class="btn" href="{% url 'nouveau-user' %}"> S'enregistrer</a>
+					{% endif %}
+			</span>
+			</nav>
+
+		</header>
+		<main>
+			{% block content %}
+			{% endblock %}
+		</main>
+		<footer class="footer">
+			<div class="container text-left">
+				<div class="foot-section">
+					<h5 class="text-uppercase">A propos</h5>
+					<p>Vente de biscuits, macarons et cookies sur commande faits maison </p>
+				</div>
+				<div class="foot-section">
+					<h5 class="text-uppercase">Contact</h5>
+					<ul class="list-unstyled text-left">
+						<li>
+							<p><i class="fas fa-home mr-3"></i> 16 rue de la Goule, 69360 Communay</p>
+						</li>
+						<li>
+							<p><i class="fas fa-envelope mr-3"></i> pepita.cecile@gmail.com</p>
+						</li>
+						<li>
+							<p><i class="fas fa-phone mr-3"></i> 06 59 59 08 12</p>
+						</li>
+					</ul>
+				</div>
+				<div class="foot-section">
+					<h5 class="text-uppercase">Réseaux sociaux</h5>
+					<a type="button" class="btn-fb btn-floating" href="https://fr-fr.facebook.com/pepita.cecile/">
+          				<i class="fab fa-facebook-f"></i>
+        			</a>
+        			<a type="button" class ="btn-insta btn-floating" href="https://www.instagram.com/pepita.cecile/">
+        				<i class="fab fa-instagram"></i>
+        			</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript">
+	var tabs = document.getElementsByClassName("nav-item");
+	for(var i=0; i<tabs.length; i++){
+		{
+			tabs[i].classList.remove("active");
+		}
+	}
+	if(document.URL.includes('blog')){
+		document.getElementById("accueil").classList.add("active");
+	}
+</script>
+</html>
