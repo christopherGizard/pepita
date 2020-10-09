@@ -34,6 +34,10 @@ C'est vide
   	</div>
   	<div class="card">
   		<h3>By tag</h3>
+  		{% for t in tags %}
+			<span class="badge badge-pill badge-light">{{ t }}</span>
+		{% empty %}
+		{% endfor %}
   	</div>
 </div>
 </div>

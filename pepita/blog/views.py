@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
+
 from .models import Post
 from .forms import PostForm
 
@@ -14,6 +15,15 @@ class ListePosts(ListView):
 	template_name = "blog/liste.html"
 
 	paginate_by = 10
+
+	def get_context_data(self, *args, **kwargs):
+		# Call the base implementation first to get a contexte
+		context = super().get_context_data(*args)
+		# On recupere la categorie de la page
+		tags = Post.tags.most_common(1)[:20]
+		print(tags)
+		context["tags"] = tags
+		return context
 
 
 #Affichage detaillé d'un post
