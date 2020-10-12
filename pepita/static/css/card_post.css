@@ -34,3 +34,9 @@
   display: table;
 }
 
+.pagination {
+	width:90%;
+	text-align: center;
+	display:table;
+}
+
