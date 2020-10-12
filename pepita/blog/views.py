@@ -121,6 +121,8 @@ class ListeTags(ListView):
 
 	paginate_by = 50
 
+	ordering = ['name']
+
 
 
 
