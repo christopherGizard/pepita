@@ -33,7 +33,6 @@
 		{% endfor %}
 		{% if is_paginated %}
 		<div class="pagination">
-			<div>
 			{% if page_obj.has_previous %}
 			<a href="?page={{ page_obj.previous_page_number }}"> Précédente</a>
 			{% endif %}
@@ -41,7 +40,6 @@
 			{% if page_obj.has_next %}
 			<a href="?page={{ page_obj.next_page_number }}">  Suivante</a>
 			{% endif %}
-		</div>
 		</div>
 		{% endif %}
 	</div>
@@ -51,10 +49,14 @@
 		</div>
 		<div class="card">
 			<h3>By tag</h3>
-			{% for t in tags %}
-			<a class="badge badge-pill badge-light" href="{% url 'liste_post_by_tag' t %}">{{ t }}</a>
-			{% empty %}
-			{% endfor %}
+			<div>
+				{% for t in tags %}
+				<a class="badge badge-pill badge-light" href="{% url 'liste_post_by_tag' t %}">{{ t }}</a>
+				{% empty %}
+
+				{% endfor %}
+			</div>
+			<a class="btn btn-dark" href="{% url 'liste_tag' %}">Plus de tags</a>
 		</div>
 	</div>
 </div>

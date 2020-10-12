@@ -7,6 +7,7 @@ urlpatterns = [
 	path('creer-post', views.CreationPost.as_view(), name="creer_post"),
 	path('modifier-post/<int:id>/<slug:slug>', views.ModificationPost.as_view(), name="modifier_post"),
 	path('supprimer_post/<int:id>/<slug:slug>', views.SuppressionPost.as_view(), name="supprimer_post"),
+	path('tags', views.ListeTags.as_view(), name="liste_tag"),
 
 
 ]

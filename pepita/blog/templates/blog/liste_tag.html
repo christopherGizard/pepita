@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/card_post.css' %}">
+{% endblock %}
+{% block content %}
+<div class="header">
+	<h2>Pepita</h2>
+	<h3>Cookies & Biscuits Homemade</h3>
+	<h5>Liste des tags</h5>
+</div>
+<div class ="tags">
+	{% for tag in tags %}
+	<a class="badge badge-pill badge-light" href="{% url 'liste_post_by_tag' tag %}">{{ tag }}</a>
+	{% empty %}
+	{% endfor %}
+</div>
+{% endblock %}

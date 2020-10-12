@@ -1,10 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from taggit.models import Tag
 
 
 from .models import Post
 from .forms import PostForm
+
+"""
+Vues pour les posts
+"""
 
 #Affiche la liste des billets du blog
 class ListePosts(ListView):
@@ -21,7 +26,6 @@ class ListePosts(ListView):
 		context = super().get_context_data(*args)
 		# On recupere les 20 tags les plus communs
 		tags = Post.tags.most_common(1)[:20]
-		print(tags)
 		context["tags"] = tags
 		return context
 
@@ -103,6 +107,22 @@ class SuppressionPost(DeleteView):
 		code = self.kwargs.get('id',None)
 		slug = self.kwargs.get('slug', None)
 		return get_object_or_404(Post,pk=code)
+"""
+Vues pour les tags
+"""
+
+#Affiche la liste des tags
+class ListeTags(ListView):
+	model = Tag
+
+	context_object_name = "tags"
+
+	template_name = "blog/liste_tag.html"
+
+	paginate_by = 50
+
+
+
 
 
 
