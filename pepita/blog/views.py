@@ -19,7 +19,7 @@ class ListePosts(ListView):
 
 	template_name = "blog/liste.html"
 
-	paginate_by = 10
+	paginate_by = 5
 
 	def get_context_data(self, *args, **kwargs):
 		# Call the base implementation first to get a contexte
@@ -37,7 +37,7 @@ class ListePostsByTag(ListView):
 
 	template_name = "blog/liste.html"
 
-	paginate_by = 10
+	paginate_by = 5
 
 	def get_queryset(self):
 		if 'tag' in self.kwargs:
@@ -49,8 +49,9 @@ class ListePostsByTag(ListView):
 		context = super().get_context_data(*args)
 		# On recupere les 20 tags les plus communs
 		tags = Post.tags.most_common(1)[:20]
-		print(tags)
 		context["tags"] = tags
+		if 'tag' in self.kwargs:
+			context["current_tag"] = self.kwargs['tag']
 		return context
 
 

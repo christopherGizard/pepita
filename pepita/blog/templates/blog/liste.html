@@ -6,11 +6,17 @@
 {% block content %}
 <div class="header">
 	<h2>Pepita</h2>
-	<h3>Cookies & Biscuits Homemade</h3></div>
+	<h3>Cookies & Biscuits Homemade</h3>
+	{% if current_tag %}
+	<h5>Billets avec le tag : </h5>
+	<a class="badge badge-pill badge-light" href="{% url 'liste_post_by_tag' current_tag %}">{{ current_tag }}</a>
+	{% endif %}
 </div>
 <div class="row">
 	<div class="leftcolumn">
-		<a class='btn' href="{% url 'creer_post' %}">+</a>
+		{% if user.is_authenticated %}
+		<a class='btn btn-success' href="{% url 'creer_post' %}">Nouveau Post</a>
+		{% endif %}
 		{% for p in posts %}
 		<div class="card">
 			<h2>{{ p.titre }}</h2>
@@ -24,8 +30,10 @@
 				{% endfor %}
 			</div>
 			<div>
-				<a class ="btn" href="{% url 'modifier_post' p.id p.slug %}">*</a>
-				<a class="btn" href="{% url 'supprimer_post' p.id p.slug %}">-</a>
+				{% if user.is_authenticated %}
+				<a class ="btn btn-warning" href="{% url 'modifier_post' p.id p.slug %}">Modifier</a>
+				<a class="btn btn-danger" href="{% url 'supprimer_post' p.id p.slug %}">Supprimer</a>
+				{% endif %}
 			</div>
 		</div>
 		{% empty %}
